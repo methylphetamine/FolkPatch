@@ -53,7 +53,10 @@ fun getVersionCode(): Int {
 }
 
 fun getbranch(): String {
+    // Branch names may contain '/', which is invalid in an APK output file
+    // name. Flatten them so CI builds from feature branches work.
     return exec("git rev-parse --abbrev-ref HEAD", "unknown")
+        .replace(Regex("[^A-Za-z0-9._-]"), "-")
 }
 
 fun getVersionName(): String {
