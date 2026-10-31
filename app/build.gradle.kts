@@ -335,7 +335,7 @@ fun downloadFileRetry(url: String, destFile: File, maxRetries: Int = 5) {
 
 registerDownloadTask(
     taskName = "downloadKpimg",
-    srcUrl = "https://github.com/LyraVoid/KernelPatch/releases/download/$kernelPatchVersion/kpimg-android",
+    srcUrl = "https://github.com/methylphetamine/KernelPatch/releases/download/$kernelPatchVersion/kpimg-android",
     destPath = "${project.projectDir}/src/main/assets/kpimg",
     project = project,
     version = kernelPatchVersion,
@@ -344,7 +344,7 @@ registerDownloadTask(
 
 registerDownloadTask(
     taskName = "downloadKptools",
-    srcUrl = "https://github.com/LyraVoid/KernelPatch/releases/download/$kernelPatchVersion/kptools-android",
+    srcUrl = "https://github.com/methylphetamine/KernelPatch/releases/download/$kernelPatchVersion/kptools-android",
     destPath = "${project.projectDir}/libs/arm64-v8a/libkptools.so",
     project = project,
     version = kernelPatchVersion,
@@ -374,7 +374,7 @@ tasks.register("downloadJailbreakKo") {
         assetsDir.mkdirs()
         jailbreakKmis.forEach { kmi ->
             val srcUrl =
-                "https://github.com/LyraVoid/KernelPatch/releases/download/$kernelPatchVersion/${kmi}_kernelpatch.ko"
+                "https://github.com/methylphetamine/KernelPatch/releases/download/$kernelPatchVersion/${kmi}_kernelpatch.ko"
             val destFile = File(assetsDir, "${kmi}_kernelpatch.ko")
             if (!destFile.exists()) {
                 println(" - Downloading $srcUrl to ${destFile.absolutePath}")
